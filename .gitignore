@@ -1,0 +1,35 @@
+# Backend (Python)
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/*.db
+backend/*.log
+api/__pycache__/
+venv/
+.env
+backend/.env
+frontend/.env
+*.local
+
+# Frontend (Node)
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/package-lock.json (might want to keep this, but I'll exclude it if requested, but generally keep it)
+# Actually, I'll keep package-lock.json
+
+# Tooling/Editor
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary files
+/tmp/
+.gemini/

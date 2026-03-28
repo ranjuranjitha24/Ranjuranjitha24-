@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f0f9ff;
+  --color-brand-100: #e0f2fe;
+  --color-brand-200: #bae6fd;
+  --color-brand-300: #7dd3fc;
+  --color-brand-400: #38bdf8;
+  --color-brand-500: #0ea5e9;
+  --color-brand-600: #0284c7;
+  --color-brand-700: #0369a1;
+  --color-brand-800: #075985;
+  --color-brand-900: #0c4a6e;
+  --color-brand-950: #082f49;
+  
+  --animate-float: float 5s ease-in-out infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+}
+
+@layer base {
+  body {
+    @apply transition-colors duration-300 antialiased font-sans;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Styles */
+  .dark .glass {
+    @apply bg-neutral-900/60 backdrop-blur-xl border border-white/5;
+  }
+  .light .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-black/5;
+  }
+  
+  .dark .glass-card {
+    @apply bg-neutral-900/40 backdrop-blur-md border border-white/10 shadow-2xl;
+  }
+  .light .glass-card {
+    @apply bg-white/40 backdrop-blur-md border border-black/10 shadow-lg;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-current via-current to-neutral-500;
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500;
+  }
+
+  /* Mesh Backgrounds */
+  .dark .bg-mesh {
+    @apply bg-[#0a0a0a];
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.12) 0px, transparent 50%);
+  }
+  
+  /* Midnight Blue Gradient */
+  .bg-midnight {
+    background-color: #020617;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(2, 6, 23, 1) 0px, transparent 100%);
+  }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-500/20 rounded-full hover:bg-neutral-500/40 transition-colors;
+}
+
+/* Custom Animations */
+.animate-float {
+  animation: var(--animate-float);
+}
+
+/* Form Styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+}
